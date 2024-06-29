@@ -30,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cornerRadius="8dp"
+        android:textColor="@color/white"
         android:backgroundTint="@color/design_default_color_primary_variant"
         android:text="@string/thu_june_27_18_22_2024"/>
 
@@ -37,5 +38,5 @@
         android:id="@+id/checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Solved"/>
+        android:text="@string/solved"/>
 </LinearLayout>

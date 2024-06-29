@@ -41,6 +41,15 @@ class CrimeDetailFragment : Fragment(){
             crime = crime.copy(title = text.toString())
         }
 
+        binding.btnDate.apply {
+            text = crime.date.toString()
+            isEnabled = false
+        }
+
+        binding.checkbox.setOnCheckedChangeListener { _, isChecked ->
+            crime = crime.copy(isSolved = isChecked)
+        }
+
     }
 
 
