@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import com.example.criminal_intent.databinding.FragmentCrimeDetailBinding
-import java.time.LocalDate
 import java.util.Date
 import java.util.UUID
 
 class CrimeDetailFragment : Fragment(){
-    private lateinit var binding: FragmentCrimeDetailBinding
+    private var _binding: FragmentCrimeDetailBinding?= null
+    private val binding get() = checkNotNull(_binding){
+            "binding is null"
+        }
     private lateinit var crime: Crime
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +31,8 @@ class CrimeDetailFragment : Fragment(){
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentCrimeDetailBinding.inflate(layoutInflater, container, false)
+    ): View {
+        _binding = FragmentCrimeDetailBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -50,6 +52,11 @@ class CrimeDetailFragment : Fragment(){
             crime = crime.copy(isSolved = isChecked)
         }
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 
